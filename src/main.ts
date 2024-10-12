@@ -28,37 +28,40 @@ name = "Diego Rios";
 
 console.log(personaUno);
 
-
 console.log(age, name);
-console.log(mixed);
-console.log(numbers);
-console.log(isStudent);
 
-console.log(dog);
+const $counter = document.getElementById("counter") as HTMLSpanElement;
+const $btnIncrement = document.getElementById("btnIncrement") as HTMLButtonElement;
 
-function saludar(nombre: string): string {
-  return `Hola ${nombre}!`;
+let counter: number = 0;
+
+const incrementar = () => {
+  counter++;
+  if($counter){
+    $counter.textContent = counter.toString();
+  }
 }
 
-// arrow function
-let suma:Function = (a: number,b: number): number =>  a + b;
+if($btnIncrement){
+  $btnIncrement.addEventListener("click",incrementar);
+}
 
-console.log(suma(8,7));
+// FUNCIONALIDAD 'SALUDADOR'
+const $btnSaludar = document.getElementById("btnSaludar") as HTMLButtonElement;
+const $inptName = document.getElementById("inptName") as HTMLInputElement;
+const $saludo = document.getElementById("saludo") as HTMLSpanElement;
 
 
-console.log(saludar("Roy"));
 
-const btnCount = document.getElementById("btnCount") as HTMLButtonElement;
-let counter = document.getElementById("counter") as HTMLSpanElement;
 
-let counterNum: number = 0;
-const incrementCounter = () => {
-  counterNum++;
-  if (counter){
-    counter.textContent = counterNum.toString();
+const saludar = () => {
+  let inptName:string = "";
+  if($inptName){
+    inptName = $inptName.value;
   }
-};
+  if($saludo){
+    $saludo.textContent = `Hola que tal ${inptName}!`;
+  }
+}
 
-
-console.log(`Contador va en: ${counter}`);
-
+$btnSaludar.addEventListener("click", saludar);
