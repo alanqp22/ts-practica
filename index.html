@@ -15,7 +15,11 @@
     <h2><span id="saludo"></span></h2>
     
     <h1>Ejercicio 3: Lista de frutas</h1>
-    <input type="text" placeholder="Fruta" id="inptFrut">&nbsp;<button id="btnAddFrut">adicionar</button>
+    <form id="frmAddFruts">
+      <input type="text" placeholder="Fruta" id="inptFrut">
+      <input type="text" placeholder="Color" id="inptColor">
+      <button type="submit" id="btnAddFrut">adicionar</button>
+    </form>
     <ul id="listFrut"></ul>
     <script type="module" src="/src/main.ts"></script>
   </body>

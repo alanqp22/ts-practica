@@ -69,33 +69,41 @@ $btnSaludar.addEventListener("click", saludar);
 
 // elementos DOM
 const $inptFrut = document.getElementById("inptFrut") as HTMLInputElement;
+const $inptColor = document.getElementById("inptColor") as HTMLInputElement;
 const $btnAddFrut = document.getElementById("btnAddFrut") as HTMLButtonElement;
 const $frutList = document.getElementById("listFrut") as HTMLUListElement;
+const $frmAddFrut = document.getElementById("frmAddFruts") as HTMLFormElement;
 
+interface Frut {
+  name: string,
+  color: string,
+}
 
-
-const frutas: string[] = ["banana", "papaya", "limón","naranja","piña"];
-
-const frutas2 = [
+const frutas: Frut[] = [
   {name: "banana", color: "yellow"},
   {name: "papaya", color: "orange"},
   {name: "lemon", color: "green"},
 ];
 
-const addItemOnList = () => {
-  if($inptFrut){
-    const $frutItem = document.createElement("li");
-    $frutItem.textContent = $inptFrut.value;
-    $frutList.appendChild($frutItem);
-  }
-}
-
-$btnAddFrut.addEventListener("click",addItemOnList);
-
-frutas2.forEach(fruta => {
-  console.log(fruta);
-  const $frutItem = document.createElement("li");
-  $frutItem.textContent = `${fruta.name} - ${fruta.color}`;
-  $frutList.appendChild($frutItem);
+$frmAddFrut.addEventListener("submit",(e)=>{
+  e.preventDefault();
+  frutas.push({
+    name: $inptFrut.value,
+    color: $inptColor.value,
+  }); 
+  $frmAddFrut.reset();
+  renderFrut();   
 });
 
+
+function renderFrut(){
+  $frutList.innerHTML = "";
+  frutas.forEach(fruta => {
+    const $frutItem = document.createElement("li");
+    $frutItem.textContent = `${fruta.name} - ${fruta.color}`;
+    $frutList.appendChild($frutItem);
+  });
+  
+}
+
+renderFrut();
