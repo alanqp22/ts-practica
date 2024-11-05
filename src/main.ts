@@ -3,9 +3,9 @@ import {Animal} from './Persona';
 import { Vehicle, Car} from "./Vehicle";
 const age: number = 31;
 let name: string = "Alan Quispe";
-const isStudent: boolean = false;
-const numbers: number[] = [5,4,7,4,1,5,9,6,8];
-const mixed: (string|number)[] = [5,"sow",6,"bear"];
+// const isStudent: boolean = false;
+// const numbers: number[] = [5,4,7,4,1,5,9,6,8];
+// const mixed: (string|number)[] = [5,"sow",6,"bear"];
 
 interface Persona {
   name: string;
@@ -18,10 +18,10 @@ const personaUno: Persona = {
   age,
 };
 
-const dog: {name: string, age: number} = {
-  name: "Rocky",
-  age: 3
-};
+// const dog: {name: string, age: number} = {
+//   name: "Rocky",
+//   age: 3
+// };
 
 personaUno.name = "Diego";
 personaUno.lastName = "Rios"
@@ -70,6 +70,7 @@ $btnSaludar.addEventListener("click", saludar);
 // elementos DOM
 const $inptFrut = document.getElementById("inptFrut") as HTMLInputElement;
 const $inptColor = document.getElementById("inptColor") as HTMLInputElement;
+// const $btnAddFrut = document.getElementById("btnAddFrut") as HTMLButtonElement;
 const $frutList = document.getElementById("listFrut") as HTMLUListElement;
 const $frmAddFrut = document.getElementById("frmAddFruts") as HTMLFormElement;
 
